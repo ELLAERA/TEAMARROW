@@ -1,6 +1,12 @@
-# COMP229-F2019-MidTerm Test
+# TEAM ARROW: MOVIE LIST
 
-## Welcome to the MidTerm Project - the Favourite Book List App
+## MEMBERS:
+1. Hazera Ferdowsi
+2. Kamal Patel
+3.
+4.
+5.
+## Welcome to the Your Moview List Project
 
 please use **`npm install`** to install project dependencies
 # movie-list
