@@ -9,8 +9,8 @@ let movie = require('../models/movies');
 
 /* GET movies List page. READ */
 router.get('/', (req, res, next) => {
-  // find all movies in the books collection
-  book.find( (err, movies) => {
+  // find all movies in the movies collection
+  movie.find( (err, movies) => {
     if (err) {
       return console.error(err);
     }
@@ -26,7 +26,7 @@ router.get('/', (req, res, next) => {
 //  GET the Movie Details page in order to add a new Movie
 router.get('/add', (req, res, next) => {
 
-  res.render('movies/details', { title: 'Add Movie', page: 'movies/details', books: ''  });
+  res.render('movies/details', { title: 'Add Movie', page: 'movies/details', movies: ''  });
 
     /*****************
      * ADD CODE HERE *
@@ -43,17 +43,23 @@ router.post('/add', (req, res, next) => {
     let newItem = new movies({
       "Title": req.body.title,
       "Description": req.body.description,
-      "Price": req.body.price,
-      "Author": req.body.author,
+      "Director": req.body.author,
       "Genre": req.body.genre,
+      "Year": req.body.year,
+      "ImdbRating": req.body.imdbRating,
+      "MetaScroe": req.body.metaScroe,
+      "GrossIncome": req.body.grossIncome,
+      "Rated": req.body.rated,
+      "Duration": req.body.duration,
+      "Stars": req.body.stars
   });
 
-  books.create(newItem, (err) => {
+  movies.create(newItem, (err) => {
       if (err) {
           console.error(err);
           res.end(err);
       };
-      res.redirect('/books');
+      res.redirect('/movies');
   })
 
 });
@@ -73,7 +79,7 @@ router.get('/:id', (req, res, next) => {
                 res.end(err);
             };
             if (movieToEdit !== undefined) {
-                console.log("Edit Books", bookItemToEdit);
+                console.log("Edit Movie", movieToEdit);
                 res.render('movies/details', { title: "Edit Movie", page: "movies/details", movies: movieToEdit })
             }
         })
@@ -89,14 +95,20 @@ router.post('/:id', (req, res, next) => {
     let id = req.params.id;
     let updatedItem = new movies({
         "_id": id,
-        "Title": req.body.title,
-        "Description": req.body.description,
-        "Price": req.body.price,
-        "Author": req.body.author,
-        "Genre": req.body.genre
+      "Title": req.body.title,
+      "Description": req.body.description,
+      "Director": req.body.author,
+      "Genre": req.body.genre,
+      "Year": req.body.year,
+      "ImdbRating": req.body.imdbRating,
+      "MetaScroe": req.body.metaScroe,
+      "GrossIncome": req.body.grossIncome,
+      "Rated": req.body.rated,
+      "Duration": req.body.duration,
+      "Stars": req.body.stars
     });
 
-    books.updateOne({ _id: id }, updatedItem, {}, (err) => {
+    movies.updateOne({ _id: id }, updatedItem, {}, (err) => {
         if (err) {
             console.error(err);
             res.redirect('/movies');
@@ -115,13 +127,12 @@ router.get('/delete/:id', (req, res, next) => {
      *****************/
     let id = req.params.id;
 
-    books.remove({ _id: id }, (err) => {
+    movies.remove({ _id: id }, (err) => {
         if (err) {
             console.error(err);
             res.end(err);
         }
-
-        res.redirect('/books');
+        res.redirect('/movies');
     })
 });
 

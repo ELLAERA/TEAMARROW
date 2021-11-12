@@ -21,8 +21,7 @@ mongoDB.once('open', ()=> {
 
 // define routers
 let index = require('../routes/index'); // top level routes
-let books = require('../routes/movies'); // routes for books
-const movies = require('../models/movies');
+let movies = require('../routes/movies'); // routes for movies
 
 let app = express();
 

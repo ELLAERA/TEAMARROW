@@ -1,6 +1,6 @@
 {
-  "name": "comp308-w2017-midterm",
-  "description": "## Welcome to the MidTerm Project - the Favourite Book List App",
+  "name": "movie-list",
+  "description": "## Welcome to the Movie list",
   "main": "server.js",
   "authors": [
     "Tom Tsiliopoulos"
@@ -11,7 +11,7 @@
     "ExpressJS",
     "EJS"
   ],
-  "homepage": "",
+  "homepage": "index",
   "ignore": [
     "**/.*",
     "node_modules",
