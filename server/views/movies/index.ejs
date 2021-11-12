@@ -1,69 +1,178 @@
 <% include ../partials/header.ejs %>
 
-    <!-- MAIN CONTENT -->
-    <div class="container">
-      <div class="row">
-        <div class="col-md-offset-1 col-md-10">
-          <h3>Favourite Movie List </h3>
-          <!-- ------------------------ -->
-          <!-- FIX THE ADD BUTTON BELOW -->
-          <!-- ------------------------ -->
-          <a href="movies/add" class="btn btn-primary"><i class="fa fa-plus"></i> Add a Movie</a>
-          <br>
-          <div class="table-responsive">
-            <table class="table table-bordered table-striped table-hover">
-              <thead>
-                <tr>
-                  <th>Title</th>
-                  <th class="text-center">Year</th>
-                  <th class="text-center">Director</th>
-                  <th class="text-center">Genre</th>
-                  <th class="text-center">Duration</th>
-                  <th class="text-center">MetaScore</th>
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-1 col-md-10">
+        <h3>Favourite Movie List </h3>
+        <!-- ------------------------ -->
+        <!-- FIX THE ADD BUTTON BELOW -->
+        <!-- ------------------------ -->
+        <a href="movies/add" class="btn btn-primary"><i class="fa fa-plus"></i> Add a Movie</a>
+        <br>
 
-                  <th class="text-center"></th>
-                  <th class="text-center"></th>
-                </tr>
-                </thead>
-                <tbody>
-                <!-- Template Row -->
-                
-                <% for (let count = 0; count < movies.length; count++) { %>
-                <tr>
-                  <td><%= movies[count].Title %></td>
-                  <td class="text-center"><%= movies[count].Year %></td>
-                  <td class="text-center"><%= movies[count].Director %></td>
-                  <td class="text-center"><%= movies[count].Genre %></td>
-                  <th class="text-center"><%= movies[count].Duration %></th>
-                  <th class="text-center"><%= movies[count].MetaScore %></th>
+        <!-- <div class="card flex-row flex-wrap">
+          <div class="card-header border-0">
+            <img
+              src="MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY209_CR3,0,140,209_AL_.jpg"
+              alt="">
+          </div>
+          <div class="card-block px-2">
+            <h4 class="card-title">Title</h4>
+            <p class="card-text">Description</p>
+            <a href="#" class="btn btn-primary">BUTTON</a>
+          </div>
+          <div class="w-100"></div>
+          <div class="card-footer w-100 text-muted">
+            Footer stating cats are CUTE little animals
+          </div>
+        </div>
+        <br>
+        <div class="card">
+          <div class="row no-gutters">
+            <div class="col-auto">
+              <img src="/" class="img-fluid" alt="">
+            </div>
+            <div class="col">
+              <div class="card-block px-2">
+                <h4 class="card-title">Title</h4>
+                <p class="card-text">Description</p>
+                <a href="#" class="btn btn-primary">BUTTON</a>
+              </div>
+            </div>
+          </div>
+        <div class="card-footer w-100 text-muted">
+                Footer stating cats are CUTE little animals
+            </div> 
+          <div class="card-block px-2">
+            <h4 class="card-title">Title</h4>
+            <p class="card-text">Description</p>
+            <a href="#" class="btn btn-primary">BUTTON</a>
+          </div>
+        </div> -->
+        <% for (let count=0; count < movies.length; count++) { %>
 
-                  <td class="text-center">
-                    <!-- ------------------------ -->
+        <div class="card" style="margin-top: 20px;">
+          <div class="card-horizontal">
+            <div class="img-square-wrapper">
+              <img class="img card-img" width="120" height=""
+                src= <%= movies[count].Image %>
+                alt="movie image">
+            </div>
+            <div class="card-body" style="padding-left: 20px;">
+              <h5 class="card-title">
+                <%= movies[count].Title %> <small class="text-dark"> (<%= movies[count].Year %>)</small>
+              </h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                <small class="d-block text-capitalize text-info">
+                  <%= movies[count].Rated %>
+                </small> |
+                <small class="d-block text-capitalize text-info">
+                  <%= movies[count].Duration %>
+                </small> | 
+                <small class="d-block text-capitalize text-info">
+                  <%= movies[count].Genre %>
+                </small>
+              </h6>
+              <h6 class="card-subtitle mb-2 text-muted">
+                <small class="d-block text-muted">
+                  Imdb Rating: <span class="text-info"><i class="fa fa-star"> <%= movies[count].ImdbRating %></i></span> 
+                 </small> |
+                <small class="d-block text-success">
+                  <%= movies[count].MetaScore %> <span class="text-muted">MetaScore</span>
+                </small>
+              </h6>
+              <p class="card-text">
+                <%= movies[count].Description %>
+              </p>
+
+              <h6 class="card-subtitle mb-2 text-muted">
+                <small class="d-block text-muted">
+                 Director: <span class="text-info"><%= movies[count].Director %></span> 
+                </small> |
+                <small class="d-block text-muted">
+                  Stars: <span class="text-info"><%= movies[count].Stars %></span> 
+                 </small>
+              </h6> 
+              <!-- ------------------------ -->
                     <!-- ADD the EDIT BUTTON HERE -->
                     <!-- ------------------------ -->
-                    <a href="movies/<%= movies[count]._id %>" 
-                      class="btn btn-primary btn-sm edit"><i class="fas fa-edit fa-sm"></i> Edit</a>
+              <a href="movies/<%= movies[count]._id %>" class="card-link m-lg-5"> <i
+                class="fa fa-edit "></i>Edit</a> 
+               
+                  
+              <a href="movies/delete/<%= movies[count]._id %>" class="card-link text-danger">
+                <i class="fas fa-trash-alt fa-sm"></i> Delete</a>
+            </div>
+          </div>
+          <!-- <div class="card-footer text-center">
+            
+            <a href="#" class="btn btn-dark"><i class="fa fa-pencil"></i> Edit</a>
+
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div> -->
+        </div>
+        <% } %>
+
+        <!-- <div class="table-responsive">
+          <table class="table table-bordered table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th class="text-center">Year</th>
+                <th class="text-center">Director</th>
+                <th class="text-center">Genre</th>
+                <th class="text-center">Duration</th>
+                <th class="text-center">MetaScore</th>
+
+                <th class="text-center"></th>
+                <th class="text-center"></th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <% for (let count=0; count < movies.length; count++) { %>
+                <tr>
+                  <td>
+                    <%= movies[count].Title %>
+                  </td>
+                  <td class="text-center">
+                    <%= movies[count].Year %>
+                  </td>
+                  <td class="text-center">
+                    <%= movies[count].Director %>
+                  </td>
+                  <td class="text-center">
+                    <%= movies[count].Genre %>
+                  </td>
+                  <th class="text-center">
+                    <%= movies[count].Duration %>
+                  </th>
+                  <th class="text-center">
+                    <%= movies[count].MetaScore %>
+                  </th>
+
+                  <td class="text-center">
+               
+                    <a href="movies/<%= movies[count]._id %>" class="btn btn-primary btn-sm edit"><i
+                        class="fas fa-edit fa-sm"></i> Edit</a>
                   </td>
 
                   <td class="text-center">
-                    <!-- ------------------------ -->
-                    <!-- ADD the DELETE BUTTON HERE -->
-                    <!-- ------------------------ -->
+                 
                     <a href="movies/delete/<%= movies[count]._id %>" class="btn btn-danger btn-sm delete">
                       <i class="fas fa-trash-alt fa-sm"></i> Delete</a>
                   </td>
                 </tr>
                 <% } %>
-              </tbody>
-            </table>
-          </div>
-           <div class="col-md-offset-1 col-md-10 text-center">
-            <ul class="pagination pagination-lg pager" id="myPager"></ul>
-          </div>
+            </tbody>
+          </table>
+        </div> -->
+        <div class="col-md-offset-1 col-md-10 text-center">
+          <ul class="pagination pagination-lg pager" id="myPager"></ul>
         </div>
       </div>
     </div>
+  </div>
 
-<% include ../partials/footer.ejs %>
-
-
+  <% include ../partials/footer.ejs %>

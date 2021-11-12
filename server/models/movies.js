@@ -11,7 +11,8 @@ let Movie = mongoose.Schema({
     GrossIncome: String,
     Rated: String,
     Duration: String,
-    Stars: String
+    Stars: String,
+    Image: String
 },
 {
   collection: "movies"

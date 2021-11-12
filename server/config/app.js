@@ -24,6 +24,7 @@ let index = require('../routes/index'); // top level routes
 let movies = require('../routes/movies'); // routes for movies
 
 let app = express();
+app.use(express.static(path.join(__dirname, '../../client/data')));
 
 // view engine setup
 app.set('views', path.join(__dirname, '../views'));
