@@ -4,11 +4,11 @@
     <div class="container">
       <div class="row">
         <div class="col-md-offset-1 col-md-10">
-          <h3>Favourite Books List </h3>
+          <h3>Favourite Movie List </h3>
           <!-- ------------------------ -->
           <!-- FIX THE ADD BUTTON BELOW -->
           <!-- ------------------------ -->
-          <a href="books/add" class="btn btn-primary"><i class="fa fa-plus"></i> Add a book</a>
+          <a href="movies/add" class="btn btn-primary"><i class="fa fa-plus"></i> Add a Movie</a>
           <br>
           <div class="table-responsive">
             <table class="table table-bordered table-striped table-hover">
@@ -16,7 +16,7 @@
                 <tr>
                   <th>Title</th>
                   <th class="text-center">Price</th>
-                  <th class="text-center">Author</th>
+                  <th class="text-center">Director</th>
                   <th class="text-center">Genre</th>
                   <th class="text-center"></th>
                   <th class="text-center"></th>
@@ -24,18 +24,18 @@
                 </thead>
                 <tbody>
                 <!-- Template Row -->
-                <% for (let count = 0; count < books.length; count++) { %>
+                <% for (let count = 0; count < movies.length; count++) { %>
                 <tr>
-                  <td><%= books[count].Title %></td>
-                  <td class="text-center">$<%= books[count].Price %></td>
-                  <td class="text-center"><%= books[count].Author %></td>
-                  <td class="text-center"><%= books[count].Genre %></td>
+                  <td><%= movies[count].Title %></td>
+                  <td class="text-center">$<%= movies[count].Price %></td>
+                  <td class="text-center"><%= movies[count].Author %></td>
+                  <td class="text-center"><%= movies[count].Genre %></td>
 
                   <td class="text-center">
                     <!-- ------------------------ -->
                     <!-- ADD the EDIT BUTTON HERE -->
                     <!-- ------------------------ -->
-                    <a href="books/<%= books[count]._id %>" 
+                    <a href="movies/<%= movies[count]._id %>" 
                       class="btn btn-primary btn-sm edit"><i class="fas fa-edit fa-sm"></i> Edit</a>
                   </td>
 
@@ -43,7 +43,7 @@
                     <!-- ------------------------ -->
                     <!-- ADD the DELETE BUTTON HERE -->
                     <!-- ------------------------ -->
-                    <a href="books/delete/<%= books[count]._id %>" class="btn btn-danger btn-sm delete">
+                    <a href="movies/delete/<%= movies[count]._id %>" class="btn btn-danger btn-sm delete">
                       <i class="fas fa-trash-alt fa-sm"></i> Delete</a>
                   </td>
                 </tr>

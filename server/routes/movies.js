@@ -2,31 +2,31 @@
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
-const books = require('../models/books');
+const movies = require('../models/movies');
 
-// define the book model
-let book = require('../models/books');
+// define the movie model
+let movie = require('../models/movies');
 
-/* GET books List page. READ */
+/* GET movies List page. READ */
 router.get('/', (req, res, next) => {
-  // find all books in the books collection
-  book.find( (err, books) => {
+  // find all movies in the books collection
+  book.find( (err, movies) => {
     if (err) {
       return console.error(err);
     }
     else {
-      res.render('books/index', {
-        title: 'Books',
-        books: books
+      res.render('movies/index', {
+        title: 'Movies',
+        movies: movies
       });
     }
   });
 });
 
-//  GET the Book Details page in order to add a new Book
+//  GET the Movie Details page in order to add a new Movie
 router.get('/add', (req, res, next) => {
 
-  res.render('books/details', { title: 'Add Book', page: 'books/details', books: ''  });
+  res.render('movies/details', { title: 'Add Movie', page: 'movies/details', books: ''  });
 
     /*****************
      * ADD CODE HERE *
@@ -40,7 +40,7 @@ router.post('/add', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-    let newItem = new books({
+    let newItem = new movies({
       "Title": req.body.title,
       "Description": req.body.description,
       "Price": req.body.price,
@@ -67,14 +67,14 @@ router.get('/:id', (req, res, next) => {
 
     let id = req.params.id;
     if (id != 'favicon.ico')
-      books.findById(id, {}, {}, (err, bookItemToEdit) => {
+      movies.findById(id, {}, {}, (err, movieToEdit) => {
             if (err) {
                 console.error(err);
                 res.end(err);
             };
-            if (bookItemToEdit !== undefined) {
+            if (movieToEdit !== undefined) {
                 console.log("Edit Books", bookItemToEdit);
-                res.render('books/details', { title: "Edit Book", page: "books/details", books: bookItemToEdit })
+                res.render('movies/details', { title: "Edit Movie", page: "movies/details", movies: movieToEdit })
             }
         })
 
@@ -87,7 +87,7 @@ router.post('/:id', (req, res, next) => {
      * ADD CODE HERE *
      *****************/
     let id = req.params.id;
-    let updatedItem = new books({
+    let updatedItem = new movies({
         "_id": id,
         "Title": req.body.title,
         "Description": req.body.description,
@@ -99,11 +99,11 @@ router.post('/:id', (req, res, next) => {
     books.updateOne({ _id: id }, updatedItem, {}, (err) => {
         if (err) {
             console.error(err);
-            res.redirect('/books');
+            res.redirect('/movies');
          res.end(err);
         }
 
-        res.redirect('/books');
+        res.redirect('/movies');
     })
 });
 
