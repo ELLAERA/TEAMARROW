@@ -15,21 +15,27 @@
               <thead>
                 <tr>
                   <th>Title</th>
-                  <th class="text-center">Price</th>
+                  <th class="text-center">Year</th>
                   <th class="text-center">Director</th>
                   <th class="text-center">Genre</th>
+                  <th class="text-center">Duration</th>
+                  <th class="text-center">MetaScore</th>
+
                   <th class="text-center"></th>
                   <th class="text-center"></th>
                 </tr>
                 </thead>
                 <tbody>
                 <!-- Template Row -->
+                
                 <% for (let count = 0; count < movies.length; count++) { %>
                 <tr>
                   <td><%= movies[count].Title %></td>
-                  <td class="text-center">$<%= movies[count].Price %></td>
+                  <td class="text-center"><%= movies[count].Year %></td>
                   <td class="text-center"><%= movies[count].Director %></td>
                   <td class="text-center"><%= movies[count].Genre %></td>
+                  <th class="text-center"><%= movies[count].Duration %></th>
+                  <th class="text-center"><%= movies[count].MetaScore %></th>
 
                   <td class="text-center">
                     <!-- ------------------------ -->

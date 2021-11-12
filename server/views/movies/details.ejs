@@ -7,14 +7,14 @@
           <h1><%= title %></h1>
             <form class="form" method="post">
               <div class="form-group">
-                <label for="NameTextField">Title</label>
+                <label for="title">Title</label>
                 <input type="text" class="form-control" id="NameTextField"
                 placeholder="Movie Name" name="title" value="<%= movies.Title %>" required>
               </div>
               <div class="form-group">
                 <label for="PriceTextField">Duration</label>
                 <input type="text" class="form-control" id="PriceTextField"
-                placeholder="Movie Price" name="duration" value="<%= movies.Duration %>"  required>
+                placeholder="Movie Duration" name="duration" value="<%= movies.Duration %>"  required>
               </div>
               <div class="form-group">
                 <label for="AuthorTextField">Director</label>
@@ -25,6 +25,21 @@
                 <label for="GenreTextField">Genre</label>
                 <input type="text" class="form-control" id="GenreTextField"
                 placeholder="Movie Genre" name="genre" value="<%= movies.Genre %>"  required>
+              </div>
+              <div class="form-group">
+                <label for="year">Release Year</label>
+                <input type="text" class="form-control" id="YearTextField"
+                placeholder="Movie Year" name="year" value="<%= movies.Year %>"  required>
+              </div>
+              <div class="form-group">
+                <label for="imdbRating">Imdb Rating</label>
+                <input type="text" class="form-control" id="ImdbRatingTextField"
+                placeholder="Imdb Rating" name="imdbRating" value="<%= movies.ImdbRating %>"  required>
+              </div>
+              <div class="form-group">
+                <label for="grossIncome">Gross Income</label>
+                <input type="text" class="form-control" id="GrossIncomTextField"
+                placeholder="Gross income" name="grossIncome" value="<%= movies.GrossIncome %>"  required>
               </div>
 
               <button type="submit" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Submit</button>

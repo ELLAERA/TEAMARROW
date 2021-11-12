@@ -7,7 +7,7 @@ let Movie = mongoose.Schema({
     Genre: String,
     Year: String,
     ImdbRating: String,
-    MetaScroe: String,
+    MetaScore: String,
     GrossIncome: String,
     Rated: String,
     Duration: String,

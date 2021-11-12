@@ -4,14 +4,23 @@ let router = express.Router();
 let mongoose = require('mongoose');
 
 // define the game model
-let book = require('../models/movies');
+let movie = require('../models/movies');
 
 /* GET home page. wildcard */
+/* GET movies List page. READ */
 router.get('/', (req, res, next) => {
-  res.render('movies/', {
-    title: 'Home',
-    movies: ''
-   });
+  // find all movies in the movies collection
+  movie.find( (err, movies) => {
+    if (err) {
+      return console.error(err);
+    }
+    else {
+      res.render('movies/index', {
+        title: 'Movies',
+        movies: movies
+      });
+    }
+  });
 });
 
 /* GET home page. wildcard */
