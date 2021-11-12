@@ -8,7 +8,7 @@ let book = require('../models/movies');
 
 /* GET home page. wildcard */
 router.get('/', (req, res, next) => {
-  res.render('content/index', {
+  res.render('movies/', {
     title: 'Home',
     movies: ''
    });
